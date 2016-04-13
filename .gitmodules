@@ -1,0 +1,3 @@
+[submodule "todo-ember"]
+	path = todo-ember
+	url = https://github.com/danjac/todo-ember
