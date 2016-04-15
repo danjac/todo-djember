@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'rest_framework_json_api',
+    'social.apps.django_app.default',
+    'rest_social_auth',
     'todo',
 ]
 
@@ -150,5 +152,28 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_METADATA_CLASS': 'rest_framework_json_api.metadata.JSONAPIMetadata',
 }
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '77wfj2kjly3f1d'
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = 'Ylz4l23qTf5i8zsU'
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SCOPE = ['r_emailaddress']
+
+"""
+SOCIAL_AUTH_PIPELINE = (
+    'social.pipeline.social_auth.social_details',
+    'social.pipeline.social_auth.social_uid',
+    'social.pipeline.social_auth.auth_allowed',
+    'social.pipeline.social_auth.social_user',
+    'social.pipeline.user.get_username',
+    'social.pipeline.user.create_user',
+    'social.pipeline.social_auth.associate_user',
+    'social.pipeline.social_auth.load_extra_data',
+    'social.pipeline.user.user_details',
+)
+"""
+
+AUTHENTICATION_BACKENDS = [
+    'social.backends.linkedin.LinkedinOAuth2',
+    'django.contrib.auth.backends.ModelBackend',
+]
 
 #APPEND_SLASH = False
